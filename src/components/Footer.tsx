@@ -1,3 +1,9 @@
+import styled from "styled-components";
+
+const FooterStyling = styled.footer`
+  padding: 20px 20px;
+`;
+
 export default function Footer() {
-  return <footer>© 2025 Ski Explorer</footer>;
+  return <FooterStyling>© 2025 Ski Explorer</FooterStyling>;
 }
