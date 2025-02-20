@@ -1,3 +1,3 @@
 export default function AboutPage() {
-    return <h2>Hello</h2>;
-  }
+  return <h2>Om oss!</h2>;
+}

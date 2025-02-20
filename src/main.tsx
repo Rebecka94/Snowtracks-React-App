@@ -14,7 +14,8 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
         </Route>
-        <Route path="skiresorts" element={<SkiResortDetail />} /> {/* Egen layout */}
+        <Route path="skiresorts" element={<SkiResortDetail />} />{" "}
+        {/* Egen layout */}
       </Routes>
     </BrowserRouter>
   </StrictMode>
