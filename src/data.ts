@@ -1,4 +1,11 @@
-export const skidorter = [
+export interface SkiResort {
+    id: number;
+    namn: string;
+    kontinent: string;
+    land: string;
+}
+
+export const skidorter: SkiResort[] = [
   { id: 1, 
     namn: "Chamonix", 
     kontinent: "Europa", 
@@ -24,4 +31,14 @@ export const skidorter = [
     kontinent: "Nordamerika", 
     land: "Kanada" 
 },
+{ id: 6, 
+    namn: "Åre", 
+    kontinent: "Europa", 
+    land: "Sverige" 
+  },
+  { id: 7, 
+    namn: "Sälen", 
+    kontinent: "Europa", 
+    land: "Sverige" 
+  },
 ];

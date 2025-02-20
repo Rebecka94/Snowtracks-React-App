@@ -5,5 +5,5 @@ const FooterStyling = styled.footer`
 `;
 
 export default function Footer() {
-  return <FooterStyling>© 2025 Ski Explorer</FooterStyling>;
+  return <FooterStyling>© 2025 Snow Tracker</FooterStyling>;
 }
