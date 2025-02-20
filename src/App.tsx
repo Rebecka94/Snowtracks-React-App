@@ -15,13 +15,17 @@ const BackgroundDiv = styled.div`
 `;
 
 const ContentBox = styled.div`
-  width: 90%;
+  width: 80%;
   max-width: 1200px;
   background: white;
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
+
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
 `;
 
 export default function App() {
