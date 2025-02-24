@@ -13,8 +13,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
+        <Route path="skiresorts/:id" element={<SkiResortDetail />} />
         </Route>
-        <Route path="skiresorts" element={<SkiResortDetail />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
