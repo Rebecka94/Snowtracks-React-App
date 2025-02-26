@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
 import MountainImg from "../assets/Mountain.png";
 import SkiResortCard from "../components/SkiResortCard";
 import { skidorter } from "../data";
@@ -16,14 +17,14 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const Wrapper1 = styled.div`
+const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const FilterBox = styled.div`
+const FilterBox = styled.select`
   position: absolute;
   bottom: -20px;
   background: white;
@@ -36,7 +37,7 @@ const FilterBox = styled.div`
   opacity: 80%;
 `;
 
-const Wrapper = styled.div`
+const SkiResortWrapper = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
@@ -64,36 +65,40 @@ const HomePageTitle = styled.h1`
 `;
 
 export default function HomePage() {
-  const svenskaSkidorter = skidorter.filter(
-    (skidort) => skidort.land === "Sverige"
-  );
-  const internationellaSkidorter = skidorter.filter(
-    (skidort) => skidort.land !== "Sverige"
-  );
+  const [filteredContinent, setFilteredContinent] = useState<string>('');
+
+  const filteredResorts = filteredContinent
+    ? skidorter.filter((skiResort) => skiResort.kontinent === filteredContinent)
+    : skidorter;
+
+  const continents = Array.from(new Set(skidorter.map((skiResort) => skiResort.kontinent)));
 
   return (
     <Container>
-      <Wrapper1>
+      <Wrapper>
         <HomePageTitle>Utforska populära skidorter</HomePageTitle>
         <StyledImage src={MountainImg} alt="Mountain" />
-        <FilterBox>Location, Budget, Season ⛷️</FilterBox>
-      </Wrapper1>
-
-      <Wrapper>
-        <Heading>Svenska Skidorter</Heading>
-        <ResortList>
-          {svenskaSkidorter.map((skiResort) => (
-            <SkiResortCard key={skiResort.id} skiResort={skiResort} />
+        <FilterBox
+          value={filteredContinent}
+          onChange={(e) => setFilteredContinent(e.target.value)}
+        >
+          <option value="">Välj en kontinent</option>
+          {continents.map((continent) => (
+            <option key={continent} value={continent}>
+              {continent}
+            </option>
           ))}
-        </ResortList>
-
-        <Heading>Skidorter Utomlands</Heading>
-        <ResortList>
-          {internationellaSkidorter.map((skiResort) => (
-            <SkiResortCard key={skiResort.id} skiResort={skiResort} />
-          ))}
-        </ResortList>
+        </FilterBox>
       </Wrapper>
+
+      <SkiResortWrapper>
+        <Heading>Skidorter</Heading>
+        <ResortList>
+          {filteredResorts.map((skiResort) => (
+            <SkiResortCard key={skiResort.id} skiResort={skiResort} />
+          ))}
+        </ResortList>
+      </SkiResortWrapper>
     </Container>
   );
 }
