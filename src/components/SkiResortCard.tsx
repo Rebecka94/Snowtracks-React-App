@@ -10,20 +10,18 @@ interface Props {
 const ResortContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: left;
-  text-align: center;
 `;
 
 const ResortImage = styled.img`
-  width: 90px;
-  height: 70px;
+  width: 170px;
+  height: 120px;
 `;
 
 const ResortLink = styled(Link)`
   text-decoration: none;
   color: #333;
   font-size: 15px;
-  padding-right: 20px;
+  
 `;
 
 export default function SkiResortCard(props: Props) {

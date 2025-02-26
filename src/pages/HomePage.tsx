@@ -16,7 +16,16 @@ const Container = styled.div`
   width: 100%;
 `;
 
+const Wrapper1 = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const FilterBox = styled.div`
+  position: absolute;
+  bottom: -20px;
   background: white;
   padding: 15px 25px;
   border-radius: 20px;
@@ -27,27 +36,31 @@ const FilterBox = styled.div`
   opacity: 80%;
 `;
 
-const Section = styled.div`
-  margin-top: 20px;
-  width: 80%;
-  max-width: 1200px;
-  text-align: center;
+const Wrapper = styled.div`
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 30px;
 `;
 
 const Heading = styled.h2`
   text-align: center;
-  margin-bottom: 5px;
-`;
-
-const HomePageTitle = styled.h1`
-  font-size: 18px;
+  margin-bottom: 15px;
 `;
 
 const ResortList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 20px;
+  width: 100%;
+`;
+
+const HomePageTitle = styled.h1`
+  font-size: 24px;
+  margin-bottom: 15px;
 `;
 
 export default function HomePage() {
@@ -60,27 +73,27 @@ export default function HomePage() {
 
   return (
     <Container>
-      <HomePageTitle>Utforska populära skidorter</HomePageTitle>
-      <StyledImage src={MountainImg} alt="Mountain" />
-      <FilterBox>Location, Budget, Season ⛷️</FilterBox>
+      <Wrapper1>
+        <HomePageTitle>Utforska populära skidorter</HomePageTitle>
+        <StyledImage src={MountainImg} alt="Mountain" />
+        <FilterBox>Location, Budget, Season ⛷️</FilterBox>
+      </Wrapper1>
 
-      <Section>
+      <Wrapper>
         <Heading>Svenska Skidorter</Heading>
         <ResortList>
           {svenskaSkidorter.map((skiResort) => (
             <SkiResortCard key={skiResort.id} skiResort={skiResort} />
           ))}
         </ResortList>
-      </Section>
 
-      <Section>
         <Heading>Skidorter Utomlands</Heading>
         <ResortList>
           {internationellaSkidorter.map((skiResort) => (
             <SkiResortCard key={skiResort.id} skiResort={skiResort} />
           ))}
         </ResortList>
-      </Section>
+      </Wrapper>
     </Container>
   );
 }

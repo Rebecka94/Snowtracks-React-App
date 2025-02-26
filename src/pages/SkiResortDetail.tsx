@@ -1,7 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import styled from "styled-components";
 import { getWeather, WeatherData } from "../api";
 import { skidorter } from "../data";
+
+const Container = styled.div`
+display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: auto;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+
+const WeatherInfo = styled.div`
+  padding: 10px;
+  border-radius: 8px;
+`;
+
+const WeatherIcon = styled.img`
+  width: 90px;
+  height: 90px;
+`;
 
 export default function SkiResortDetail() {
   const { id } = useParams();
@@ -22,19 +48,26 @@ export default function SkiResortDetail() {
   }
 
   return (
-    <div>
-      <h2>{skiResort.namn}</h2>
-      <p>Land: {skiResort.land}</p>
-      <p>Kontinent: {skiResort.kontinent}</p>
-
+    <Container>
+      <h3>Väderinformation</h3>
+      <TitleWrapper>
+        <h2>{skiResort.namn}</h2>
+        {weather && (
+          <WeatherIcon
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            alt={weather.weather[0].description}
+          />
+        )}
+      </TitleWrapper>
       {weather && (
-        <div>
-          <h3>Väderinformation</h3>
-          <p>Temperatur: {weather.main.temp}°C</p>
-          <p>Väder: {weather.weather[0].description}</p>
-          <p>Vindhastighet: {weather.wind.speed} m/s</p>
-        </div>
+        <WeatherInfo>
+          <div>
+            <p>Temperatur: {weather.main.temp}°C</p>
+            <p>Väder: {weather.weather[0].description}</p>
+            <p>Vindhastighet: {weather.wind.speed} m/s</p>
+          </div>
+        </WeatherInfo>
       )}
-    </div>
+    </Container>
   );
 }

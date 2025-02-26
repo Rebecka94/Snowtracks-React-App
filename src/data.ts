@@ -22,21 +22,16 @@ export const skidorter: SkiResort[] = [
     land: "Japan" 
   },
   { id: 4, 
-    namn: "Verbier", 
-    kontinent: "Europa", 
-    land: "Schweiz" 
-  },
-  { id: 5, 
-    namn: "Whistler", 
-    kontinent: "Nordamerika", 
-    land: "Kanada" 
-},
-{ id: 6, 
     namn: "Åre", 
     kontinent: "Europa", 
     land: "Sverige" 
+},
+{ id: 5, 
+    namn: "Branäs", 
+    kontinent: "Europa", 
+    land: "Sverige" 
   },
-  { id: 7, 
+  { id: 6, 
     namn: "Sälen", 
     kontinent: "Europa", 
     land: "Sverige" 
