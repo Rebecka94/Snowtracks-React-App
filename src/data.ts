@@ -77,7 +77,7 @@ export const skidorter: SkiResort[] = [
   namn: "Banff", 
   kontinent: "Nordamerika", 
   land: "Kanada",
-  image: "https://www.banff-springs-hotel.com/content/uploads/2022/11/Experience-Map-Ski_Snowboard_Norquay_DanEvans_001-768x762.jpg",
+  image: "https://ik.imagekit.io/spotlio/fetch/tr:w-1200/https://public-assets.spotliodata.com/04ca68f3-dec0-43f3-847e-ae29f5a99eb7.jpg",
   description: "Belägen i de kanadensiska Rocky Mountains, erbjuder Banff några av de mest imponerande skidterrängerna i Nordamerika."
 },
  {

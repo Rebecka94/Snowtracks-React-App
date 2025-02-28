@@ -29,4 +29,4 @@ git clone <https://github.com/Rebecka94/Snowtracks-React-App>
 
 ## Deployment  
 The project has been deployed on **Vercel**. You can access it here:  
-[Live Demo]()  
+[Live Demo](https://snowtracks-react.vercel.app/)  

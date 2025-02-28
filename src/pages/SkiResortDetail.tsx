@@ -26,7 +26,6 @@ const ResortImage = styled.img`
 
 const WeatherInfo = styled.div`
   padding: 10px;
-  border-radius: 8px;
 `;
 
 const WeatherIcon = styled.img`
@@ -35,10 +34,11 @@ const WeatherIcon = styled.img`
 `;
 
 const DescriptionBox = styled.div`
-  padding: 15px;
-  text-align: center;
+  padding: 10px;
+  text-align: left;
   width: 80%;
   max-width: 600px;
+  margin-bottom: 20px;
 `;
 
 export default function SkiResortDetail() {
@@ -73,8 +73,8 @@ export default function SkiResortDetail() {
       <TitleWrapper>
         {weather && (
           <WeatherIcon
-            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-            alt={weather.weather[0].description}
+          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+          alt={weather.weather[0].description}
           />
         )}
       </TitleWrapper>

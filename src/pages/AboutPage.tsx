@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 10%;
+  padding-left: 30px; 
+  padding-right: 30px; 
 `;
 
 const DescriptionText = styled.p`
   text-align: left;
+  margin-top: 50px;
+  margin-bottom: 70px;
 `;
 
 export default function AboutPage() {
