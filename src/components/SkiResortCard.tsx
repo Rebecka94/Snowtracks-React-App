@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 import styled from "styled-components";
 import { SkiResort } from "../data";
-import MountainImg from "../assets/Mountain.png";
 
 interface Props {
   skiResort: SkiResort;
@@ -13,15 +12,15 @@ const ResortContainer = styled.div`
 `;
 
 const ResortImage = styled.img`
-  width: 170px;
-  height: 120px;
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
 `;
 
 const ResortLink = styled(Link)`
   text-decoration: none;
   color: #333;
   font-size: 15px;
-  
 `;
 
 export default function SkiResortCard(props: Props) {
