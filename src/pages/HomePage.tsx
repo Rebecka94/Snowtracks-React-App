@@ -28,7 +28,7 @@ const FilterBox = styled.select`
   position: absolute;
   bottom: -20px;
   background: white;
-  padding: 15px 25px;
+  padding: 15px 45px;
   border-radius: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   font-size: 16px;
@@ -68,7 +68,7 @@ export default function HomePage() {
 
   const filteredResorts = filteredContinent
     ? skidorter.filter((skiResort) => skiResort.kontinent === filteredContinent)
-    : skidorter.slice(0,3);
+    : skidorter.slice(0,4);
 
   const continents = Array.from(new Set(skidorter.map((skiResort) => skiResort.kontinent)));
 
