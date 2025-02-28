@@ -38,17 +38,16 @@ const FilterBox = styled.select`
 `;
 
 const SkiResortWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
-  gap: 30px;
+  gap: 10px;
+  margin-bottom: 50px;
 `;
 
 const Heading = styled.h2`
   text-align: center;
-  margin-bottom: 15px;
 `;
 
 const ResortList = styled.div`
@@ -69,7 +68,7 @@ export default function HomePage() {
 
   const filteredResorts = filteredContinent
     ? skidorter.filter((skiResort) => skiResort.kontinent === filteredContinent)
-    : skidorter;
+    : skidorter.slice(0,3);
 
   const continents = Array.from(new Set(skidorter.map((skiResort) => skiResort.kontinent)));
 
@@ -92,7 +91,10 @@ export default function HomePage() {
       </Wrapper>
 
       <SkiResortWrapper>
-        <Heading>Skidorter</Heading>
+        <Heading>{filteredContinent
+            ? `Skidorter i ${filteredContinent}`
+            : "Rekommenderade skidorter"}
+            </Heading>
         <ResortList>
           {filteredResorts.map((skiResort) => (
             <SkiResortCard key={skiResort.id} skiResort={skiResort} />
