@@ -18,6 +18,11 @@ const TitleWrapper = styled.div`
   gap: 10px;
 `;
 
+const ResortImage = styled.img`
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+`;
 
 const WeatherInfo = styled.div`
   padding: 10px;
@@ -27,6 +32,15 @@ const WeatherInfo = styled.div`
 const WeatherIcon = styled.img`
   width: 90px;
   height: 90px;
+`;
+
+const DescriptionBox = styled.div`
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
 `;
 
 export default function SkiResortDetail() {
@@ -49,9 +63,16 @@ export default function SkiResortDetail() {
 
   return (
     <Container>
-      <h3>Väderinformation</h3>
+
+<h2>{skiResort.namn}, {skiResort.land}</h2>
+<ResortImage src={skiResort.image} alt={skiResort.namn} />
+      
+      <DescriptionBox>
+        <p>{skiResort.description}</p>
+      </DescriptionBox>
+
+      <h3>Väderleken i { skiResort.namn }</h3>
       <TitleWrapper>
-        <h2>{skiResort.namn}</h2>
         {weather && (
           <WeatherIcon
             src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
@@ -63,7 +84,7 @@ export default function SkiResortDetail() {
         <WeatherInfo>
           <div>
             <p>Temperatur: {weather.main.temp}°C</p>
-            <p>Väder: {weather.weather[0].description}</p>
+            <p>Väderbeskrivning: {weather.weather[0].description}</p>
             <p>Vindhastighet: {weather.wind.speed} m/s</p>
           </div>
         </WeatherInfo>
