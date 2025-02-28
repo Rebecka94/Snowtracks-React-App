@@ -19,9 +19,9 @@ const TitleWrapper = styled.div`
 `;
 
 const ResortImage = styled.img`
-  width: 80%;
-  max-width: 500px;
-  border-radius: 10px;
+  opacity: 90%;
+  width: 90%;
+  object-fit: cover;
 `;
 
 const WeatherInfo = styled.div`
@@ -35,9 +35,7 @@ const WeatherIcon = styled.img`
 `;
 
 const DescriptionBox = styled.div`
-  background: white;
   padding: 15px;
-  border-radius: 10px;
   text-align: center;
   width: 80%;
   max-width: 600px;
