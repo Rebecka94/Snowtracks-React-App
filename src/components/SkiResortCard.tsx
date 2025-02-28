@@ -30,7 +30,7 @@ export default function SkiResortCard(props: Props) {
       <ResortLink to={`skiresorts/${props.skiResort.id}`}>
         {props.skiResort.namn}, {props.skiResort.land}
       </ResortLink>
-      <ResortImage src={MountainImg} alt="Globe Icon" />
+      <ResortImage src={props.skiResort.image} alt="Globe Icon" />
     </ResortContainer>
   );
 }
