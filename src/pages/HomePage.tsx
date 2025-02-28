@@ -76,7 +76,7 @@ export default function HomePage() {
   return (
     <Container>
       <Wrapper>
-        <HomePageTitle>Utforska populära skidorter</HomePageTitle>
+        <HomePageTitle>Utforska populära skidorter ⛷️</HomePageTitle>
         <StyledImage src={MountainImg} alt="Mountain" />
         <FilterBox
           value={filteredContinent}
