@@ -26,16 +26,29 @@ const Wrapper = styled.div`
 `;
 
 const FilterBox = styled.select`
+font-family: "Geist Mono", serif;
   position: absolute;
   bottom: -20px;
   background: white;
-  padding: 15px 45px;
+  padding: 15px 45px 15px 15px;
   border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
   text-align: center;
   width: 60%;
   opacity: 80%;
+  border: none;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url('/src/assets/arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  background-size: 12px 8px;
+  
 `;
 
 const SkiResortWrapper = styled.div`

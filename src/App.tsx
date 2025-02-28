@@ -17,9 +17,9 @@ const BackgroundDiv = styled.div`
 const ContentBox = styled.div`
   width: 80%;
   max-width: 1200px;
-  background: linear-gradient(to bottom, white 60%, #829EC8 100%);
+  background: linear-gradient(to bottom, white 70%, #829EC8 100%);
   border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
 
