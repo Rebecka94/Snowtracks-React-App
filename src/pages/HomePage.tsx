@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 import MountainImg from "../assets/Mountain.png";
 import SkiResortCard from "../components/SkiResortCard";
 import { skidorter } from "../data";
@@ -8,6 +8,7 @@ const StyledImage = styled.img`
   opacity: 80%;
   width: 90%;
   object-fit: cover;
+  border-radius: 20px;
 `;
 
 const Container = styled.div`
@@ -42,7 +43,7 @@ const SkiResortWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 10px;
+  gap: 50px;
   margin-bottom: 50px;
 `;
 
@@ -54,7 +55,7 @@ const ResortList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   width: 100%;
 `;
 
@@ -64,13 +65,14 @@ const HomePageTitle = styled.h1`
 `;
 
 export default function HomePage() {
-  const [filteredContinent, setFilteredContinent] = useState<string>('');
+  const [filteredContinent, setFilteredContinent] = useState<string>("");
 
-  const filteredResorts = filteredContinent
-    ? skidorter.filter((skiResort) => skiResort.kontinent === filteredContinent)
-    : skidorter.slice(0,4);
+  const getResortsByContinent = (continent: string) =>
+    skidorter.filter((skiResort) => skiResort.kontinent === continent);
 
-  const continents = Array.from(new Set(skidorter.map((skiResort) => skiResort.kontinent)));
+  const continents = Array.from(
+    new Set(skidorter.map((skiResort) => skiResort.kontinent))
+  );
 
   return (
     <Container>
@@ -91,15 +93,27 @@ export default function HomePage() {
       </Wrapper>
 
       <SkiResortWrapper>
-        <Heading>{filteredContinent
-            ? `Skidorter i ${filteredContinent}`
-            : "Rekommenderade skidorter"}
-            </Heading>
-        <ResortList>
-          {filteredResorts.map((skiResort) => (
-            <SkiResortCard key={skiResort.id} skiResort={skiResort} />
-          ))}
-        </ResortList>
+        {filteredContinent ? (
+          <div key={filteredContinent}>
+            <Heading>Skidorter i {filteredContinent}</Heading>
+            <ResortList>
+              {getResortsByContinent(filteredContinent).map((skiResort) => (
+                <SkiResortCard key={skiResort.id} skiResort={skiResort} />
+              ))}
+            </ResortList>
+          </div>
+        ) : (
+          continents.map((continent) => (
+            <div key={continent}>
+              <Heading>{continent}</Heading>
+              <ResortList>
+                {getResortsByContinent(continent).map((skiResort) => (
+                  <SkiResortCard key={skiResort.id} skiResort={skiResort} />
+                ))}
+              </ResortList>
+            </div>
+          ))
+        )}
       </SkiResortWrapper>
     </Container>
   );
